@@ -1,0 +1,61 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <title>Uber rides predict</title>
+  </head>
+  <body>
+<div class="card mb-3 mt-4" style="max-width: 800px;margin: 0 auto;">
+  <div class="row no-gutters">
+    <div class="col-md-6">
+      <img src="{% static 'uber.png' %}" class="card-img" alt="...">
+        <h2 class="card-title text-center p-2 text-primary">Your Result Here</h2>
+        {% if result %}
+        <h3 class="card-title text-center p-2 text-success">No of Weekly Riders {{ result }}</h3>
+        {% endif %}
+    </div>
+    <div class="col-md-6">
+      <div class="card-body">
+        <h2 class="card-title text-center text-primary">Test Your Result</h2>
+          <form method="post">{% csrf_token %}
+          <div class="form-group">
+            <input type="text" class="form-control"  name="Priceperweek" placeholder="Price per week" required="required">
+          </div>
+           <div class="form-group">
+            <input type="text" class="form-control"  name="Population" placeholder="Population" required="required">
+          </div>
+           <div class="form-group">
+            <input type="text" class="form-control" name="Monthlyincome" placeholder="Monthly income" required="required">
+          </div>
+            <div class="form-group">
+            <input type="text" class="form-control"  name="Averageparkingpermonth" placeholder="Average parking pe rmonth" required="required">
+          </div>
+
+          <button type="submit" class="btn btn-primary col-md-12">Submit</button>
+        </form>
+      </div>
+        <h4 class="text-warning">
+            <marquee >Check your Per week ride to achive your goal.</marquee>
+        </h4>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+
+  </body>
+</html>
